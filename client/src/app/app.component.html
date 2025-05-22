@@ -1,0 +1,16 @@
+<div class="min-h-screen bg-gradient-to-br from-gray-900 via-gray-800 to-gray-700">
+  <header class="bg-white shadow sticky top-0 z-10">
+    <div class="container mx-auto flex items-center justify-between py-4 px-6">
+      <a [routerLink]="'/books'"
+        class="text-2xl font-bold text-blue-700 tracking-tight hover:text-blue-900 transition">📚
+        Book Store</a>
+      <nav class="flex gap-6">
+        <a [routerLink]="'/books'" class="text-gray-700 hover:text-blue-600 font-medium transition">Books</a>
+        <a [routerLink]="'/book/form'" class="text-gray-700 hover:text-blue-600 font-medium transition">Add Book</a>
+      </nav>
+    </div>
+  </header>
+  <main class="container mx-auto px-4 py-8">
+    <router-outlet />
+  </main>
+  </div>
