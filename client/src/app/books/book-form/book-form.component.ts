@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angula
 import { ActivatedRoute, RouterLink, Router } from '@angular/router';
 import { BooksService } from '../../services/books.service';
 import { Subscription } from 'rxjs';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-book-form',
@@ -18,7 +19,11 @@ export class BookFormComponent implements OnInit, OnDestroy {
   isEdit = false;
   bookId?: number;
 
-  constructor(private fb: FormBuilder, private activatedRouter: ActivatedRoute, private router: Router) {}
+  constructor(private fb: FormBuilder,
+    private activatedRouter: ActivatedRoute,
+    private router: Router,
+    private toasterService: ToastrService
+  ) { }
 
   ngOnInit(): void {
     this.form = this.fb.group({
@@ -53,14 +58,26 @@ export class BookFormComponent implements OnInit, OnDestroy {
     if (this.isEdit && this.bookId) {
       // Update
       this.bookformSubscription = this.bookService.updateBook(this.bookId, this.form.value).subscribe({
-        next: () => this.router.navigate(['/books']),
-        error: (err) => console.log(err)
+        next: () => {
+          this.toasterService.success('Book updated Successfully!');
+          this.router.navigate(['/books']);
+        },
+        error: (err) => {
+          this.toasterService.error('Update failed!');
+          console.log(err);
+        }
       });
     } else {
       // Add
       this.bookformSubscription = this.bookService.addBook(this.form.value).subscribe({
-        next: () => this.router.navigate(['/books']),
-        error: (err) => console.log(err)
+        next: () => {
+          this.toasterService.success('Book added Successfully!');
+          this.router.navigate(['/books']);
+        },
+        error: (err) => {
+          this.toasterService.error('Add failed!');
+          console.log(err);
+        }
       });
     }
   }

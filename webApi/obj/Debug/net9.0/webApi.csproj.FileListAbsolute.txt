@@ -157,3 +157,4 @@ D:\enhanzer\webApi\bin\Debug\net9.0\ru\Microsoft.CodeAnalysis.Workspaces.MSBuild
 D:\enhanzer\webApi\bin\Debug\net9.0\tr\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
 D:\enhanzer\webApi\bin\Debug\net9.0\zh-Hans\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
 D:\enhanzer\webApi\bin\Debug\net9.0\zh-Hant\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+D:\enhanzer\webApi\obj\Debug\net9.0\webApi.sourcelink.json
